@@ -1,3 +1,3 @@
 ## Requisitos
-- Installar R dependiendo tu SO
+- Installar R dependiendo de tu SO
 - Instalar RStudio para trabajar con R (recomendacion)
