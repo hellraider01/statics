@@ -5,7 +5,7 @@ simularTiradaL5A <- function(tipodado=NULL, lanzados=NULL, guardas=NULL){
   ordenada <- sort(x3, decreasing = TRUE)
   x4 <- ordenada[1:guardas]
   sum <- sum(x4)
-  
+  return(sum)
 #   cont <- 0
 #   for (i in ordenada ) {
 #     if (i == 10) {

@@ -1,7 +1,13 @@
+x3 <- c()
 
-gendata <- function(tipoDado, rep){
-  rows <- c(1:tipoDado)
-  x3 <- sample(tipoDado, rep, replace = TRUE)
+gendataL5A <- function(rep, lanzados, guardados){
+  # sumamaxima <- dadosguardar*10
+  x3 <- rep(0, rep)
+  for (i in range(1:rep)) {
+    x3[i] <- simularTiradaL5A(tipodado = 10, lanzados = lanzados, guardas = guardados)
+    print(i)
+  }
+  print(x3)
   df <- data.frame(table(x3))
   sum <- sum(df['Freq'])
   x <- 0
