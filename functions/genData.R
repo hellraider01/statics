@@ -1,8 +1,7 @@
 
 gendata <- function(tipoDado, rep){
   rows <- c(1:tipoDado)
-  it <- rep
-  x3 <- sample(tipoDado, it, replace = TRUE)
+  x3 <- sample(tipoDado, rep, replace = TRUE)
   df <- data.frame(table(x3))
   sum <- sum(df['Freq'])
   x <- 0

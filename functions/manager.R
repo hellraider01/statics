@@ -9,9 +9,3 @@ saveData <- function(frame){
 readData <- function(filename){
   read.csv(file, header = TRUE, sep = ",")
 }
-
-simularTirada <- function(dado=NULL, numDados=NULL, guardas=NULL){
-  if(dado!= NULL){
-    
-  }
-}
