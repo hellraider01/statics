@@ -7,5 +7,5 @@ saveData <- function(frame){
 }
 
 readData <- function(filename){
-  read.csv(file, header = TRUE, sep = ",")
+  return(read.csv(file = paste( path,filename, ".csv"), header = TRUE, sep = ","))
 }

@@ -1,9 +1,11 @@
+rm(list = ls()) # limpio el workspace
+
 source(file="./functions/manager.R")
 source(file="./functions/genData.R") 
 source(file="./functions/simulador.R")
+source(file="./functions/estadisticas.R")
 # genracion de los csv vasados en las estadisticas
-for (i in c(1:1)) {
-  x3 <- sample(200, 1, replace = TRUE)
-  print(x3)
-  gendata(tipoDado=10,rep=x3)
-}
+# generarPoblacionL5A(rep = 20,lanzados = 8,guardados = 4,tiradas = 500)
+datos <- readData(filename = "1")
+dat <- normalizar(datos[1])
+print(dat)
