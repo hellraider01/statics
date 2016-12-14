@@ -1,23 +1,28 @@
 gendataL5A <- function(lanzados, guardados, tiradas){
   # sumamaxima <- dadosguardar*10
-  x3 <- rep(0, tiradas)
+  dvalor <- rep(0, tiradas)
   for (i in c(1:tiradas)) {
-    x3[i] <- simularTiradaL5A(tipodado = 10, lanzados = lanzados, guardas = guardados)
+    dvalor[i] <- simularTiradaL5A(tipodado = 10, lanzados = lanzados, guardas = guardados)
   }
-  print(x3)
-  df <- data.frame(table(x3))
-  sum <- sum(df['Freq'])
+  df <- data.frame(table(dvalor))
+  df['dlanzado'] <- rep(lanzados, length(df$dvalor))
+  df['dguardado'] <- rep(guardados, length(df$dvalor))
+  df[is.na(df$Freq)] <- 0
+  sum <- sum(df$Freq)
+  print(sum)
   x <- 0
-  for (i in df[2]) {
+  for (i in df$Freq) {
     x <- i/sum
   }
-  df['Per'] = x
+  df['Per'] <- x
   saveData(df, folder = 'L5A')
 }
 
-generarPoblacionL5A <- function(poblaciones, lanzados, guardados, tiradas){
+generarPoblacionL5A <- function(poblaciones, tiradas){
   for (i in c(1:poblaciones)) {
     x3 <- sample(tiradas, 1, replace = TRUE)
-    gendataL5A(lanzados = lanzados, guardados = guardados, tiradas = x3)
+    aguardar <- sample(1:20, 1, replace = TRUE) #dados a guardar
+    alanzar <- sample(aguardar:aguardar*2, 1, replace = TRUE) #dados a lanzar
+    gendataL5A(lanzados = alanzar, guardados = aguardar, tiradas = x3)
   }
 }
