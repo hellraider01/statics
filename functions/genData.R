@@ -1,4 +1,4 @@
-gendataL5A <- function(rep, lanzados, guardados, tiradas){
+gendataL5A <- function(lanzados, guardados, tiradas){
   # sumamaxima <- dadosguardar*10
   x3 <- rep(0, tiradas)
   for (i in c(1:tiradas)) {
@@ -15,9 +15,9 @@ gendataL5A <- function(rep, lanzados, guardados, tiradas){
   saveData(df, folder = 'L5A')
 }
 
-generarPoblacionL5A <- function(rep, lanzados, guardados, tiradas){
-  for (i in c(1:rep)) {
+generarPoblacionL5A <- function(poblaciones, lanzados, guardados, tiradas){
+  for (i in c(1:poblaciones)) {
     x3 <- sample(tiradas, 1, replace = TRUE)
-    gendataL5A(rep = rep,lanzados = lanzados, guardados = guardados, tiradas = tiradas)
+    gendataL5A(lanzados = lanzados, guardados = guardados, tiradas = x3)
   }
 }

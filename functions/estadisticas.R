@@ -16,6 +16,14 @@ IC <- function(normaldata, porcentaje){
   return(ic)
 }
 
+checkICTirada <- function(ic, sumatirada) {
+  if (sumatirada >= ic[1] && sumatirada <= ic[2]) {
+    return(TRUE)
+  }else{
+    return(FALSE)
+  }
+}
+
 graficar <- function(datosX, datosY){
   plot(datosX, datosY, type="l", lty = 2, xlab="Valores Optenidos",
   ylab="Frecuencia Normalizada", main="Normalizacion de Datos")
