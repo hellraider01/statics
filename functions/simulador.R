@@ -1,17 +1,20 @@
-cuentadieces <- function(array){
+cuentadieces <- function(array) {
   cont <- 0
   print(array)
   for (i in array) {
+    print(i)
     if (is.na(i) == FALSE) {
       if (i == 10) {
         cont = cont + 1
       }
+    }else{
+      i <- 0
     }
   }
   return(cont)
 }
 
-simularTiradaL5A <- function(tipodado=10, lanzados=0, guardas=0){
+simularTiradaL5A <- function(tipodado = 10, lanzados = 0, guardas = 0) {
   # criticos <- 0
   # metodo edmund aqui
   # tirada de datos 1
@@ -19,31 +22,23 @@ simularTiradaL5A <- function(tipodado=10, lanzados=0, guardas=0){
   ordenada <- sort(x3, decreasing = TRUE)
   x4 <- ordenada[1:guardas]
   sum <- sum(x4)
-  
   # tirada de repeticiones 1
   dieces1 <- cuentadieces(x4)
-  tirada1 <- 0
   if (dieces1 >= 1) {
-    tirada1 <- sample(tipodado, dieces1, replace = TRUE)
-    sum <- sum + sum(tirada1)
+    tir1 <- sort(sample(10, dieces1, replace = TRUE))
+    sum <- sum + sum(tir1)
   }
-  
-  # tirada de repeticiones 2
-  dieces2 <- cuentadieces(tirada1)
-  tirada2 <- 0
-  if (dieces2 >= 1) {
-    tirada2 <- sample(tipodado, dieces2, replace = TRUE)
-    sum <- sum + sum(tirada2)
+  dieces2 <- cuentadieces(x4)
+  if (dieces2 >= 1 && dieces1 != 0) {
+    tir2 <- sort(sample(10, dieces2, replace = TRUE))
+    sum <- sum + sum(tir2)
   }
-  
-  # tirada de repeticiones 3
-  dieces3 <- cuentadieces(tirada2)
-  tirada2 <- 0
-  if (dieces3 >= 1) {
-    tirada3 <- sample(tipodado, dieces3, replace = TRUE)
-    sum <- sum + sum(tirada3)
+  dieces3 <- cuentadieces(x4)
+  if (dieces3 >= 1 && dieces1 != 0 && dieces2 != 0) {
+    tir3 <- sort(sample(10, dieces3, replace = TRUE))
+    sum <- sum + sum(tir3)
   }
-  
-  return(sum) 
+  # sort(tirada3, decreasing = TRUE)[1])
+  return(sum)
 }
 
