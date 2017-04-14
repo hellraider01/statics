@@ -32,21 +32,21 @@ graficar <- function(datosX, datosY){
 
 prediccionVFLG <- function(dataframe, lanzado, guardado){
   dat <- lm(dvalor ~ dlanzado + dguardado, data = dataframe)
-  res <- dat[1]$coefficients[1] + lanzado*dat[1]$coefficients[2] + guardado*dat[1]$coefficients[2]
+  res <- dat[1]$coefficients[1] + lanzado*dat[1]$coefficients[2] + guardado*dat[1]$coefficients[3]
   res <- round(res, digits = 0)
   return(res)
 }
 
 prediccionLFVG <- function(dataframe, valordeseado, guardado){
   dat <- lm(dlanzado ~ dvalor + dguardado, data = dataframe)
-  res <- dat[1]$coefficients[1] + valordeseado*dat[1]$coefficients[2] + guardado*dat[1]$coefficients[2]
+  res <- dat[1]$coefficients[1] + valordeseado*dat[1]$coefficients[2] + guardado*dat[1]$coefficients[3]
   res <- round(res, digits = 0)
   return(res)
 }
 
 prediccionGFVL <- function(dataframe, dvalor, lanzado){
   dat <- lm(dlanzado ~ dvalor + dguardado, data = dataframe)
-  res <- dat[1]$coefficients[1] + dvalor*dat[1]$coefficients[2] + lanzado*dat[1]$coefficients[2]
+  res <- dat[1]$coefficients[1] + dvalor*dat[1]$coefficients[2] + lanzado*dat[1]$coefficients[3]
   res <- round(res, digits = 0)
   return(res)
 }
